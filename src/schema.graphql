@@ -71,12 +71,12 @@ type Mutation
 	createUser(name: String!, email: String!, picture: String!): User!,
 	# Category Mutations
 	createCategory(name: String!, type: String!, userId: Int!): Category!,
-	removeCategory(categoryId: Int!),
+	removeCategory(categoryId: Int!): Category,
 	editCategory(categoryId: Int!, name: String!): Category!,
 	# Task Mutations
 	createTask(title: String!, description: String!, parentId: Int!, userId: Int!, due: String, labels: [Int], remarks: String): Task!
-	removeTask(taskId: Int!),
-	editTask(taskId: Int!, title: String, description: String, dueDate: String, remarks: String, labels: [Int])
+	removeTask(taskId: Int!): Task!,
+	editTask(taskId: Int!, title: String, description: String, dueDate: String, remarks: String, labels: [Int]): Task!
 	# Label Mutations
-	editLabel(labelId: Int!, userId: Int!, title: String!)
+	editLabel(labelId: Int!, userId: Int!, title: String!): Label!
 }

@@ -62,6 +62,6 @@ export class CategoriesService
 	// Edit a category.
 	async editCategory(categoryId: number, name: string)
 	{
-		return(await this.Category.findOneAndUpdate({"categoryId": categoryId}, {$set:{name: name, updated: Date.now}}, {new: true}));
+		return(await this.Category.findOneAndUpdate({"categoryId": categoryId}, {$set:{"name": name, "updated": Date.now}}, {new: true}));
 	}
 }
