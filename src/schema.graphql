@@ -38,7 +38,8 @@ type Task
 	created: String!,
 	remarks: String,
 	labels: [Int],
-	status: String
+	status: String,
+	isCompleted: Boolean
 }
 
 type Label
