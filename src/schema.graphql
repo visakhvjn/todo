@@ -30,7 +30,7 @@ type Task
 {
 	taskId: Int!,
 	userId: Int!,
-	categoryId: Int!,
+	categoryId: Int,
 	title: String!,
 	description: String,
 	parentId: Int!,
