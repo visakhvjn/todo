@@ -5,6 +5,7 @@ export const TaskSchema = new mongoose.Schema
 	id: String,
 	taskId: Number,
 	userId: Number,
+	categoryId: Number,
 	position: Number,
 	title: String,
 	description: String,
