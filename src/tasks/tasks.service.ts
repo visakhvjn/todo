@@ -27,7 +27,7 @@ export class TasksService
 	}
 
 	// Create a new task
-	async createTask(title: string, description: string, userId: number, parentId: number, remarks: string, labels: [number], dueDate: Date): Promise<Task>
+	async createTask(title: string, description: string, categoryId: number, userId: number, parentId: number, remarks: string, labels: [number], dueDate: Date): Promise<Task>
 	{
 		const totalTaskCount: number = await this.Task.count({});
 		const nextTaskId: number = totalTaskCount + 1;
@@ -35,6 +35,7 @@ export class TasksService
 		const newTask =
 		{
 			taskId: nextTaskId,
+			categoryId: categoryId,
 			userId: userId,
 			title: title,
 			description: description,

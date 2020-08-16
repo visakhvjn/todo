@@ -76,7 +76,7 @@ type Mutation
 	removeCategory(categoryId: Int!): Category,
 	editCategory(categoryId: Int!, name: String!): Category!,
 	# Task Mutations
-	createTask(title: String!, description: String!, parentId: Int!, userId: Int!, due: String, labels: [Int], remarks: String): Task!
+	createTask(title: String!, description: String!, parentId: Int!, categoryId: Int!, userId: Int!, due: String, labels: [Int], remarks: String): Task!
 	removeTask(taskId: Int!): Task!,
 	editTask(taskId: Int!, title: String, description: String, dueDate: String, remarks: String, labels: [Int]): Task!
 	# Label Mutations

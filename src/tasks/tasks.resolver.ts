@@ -20,9 +20,9 @@ export class TasksResolver
 	}
 
 	@Mutation("createTask")
-	async createTask(@Args("title") title: string, @Args("description") description: string, @Args("parentId") parentId: number, @Args("userId") userId: number, @Args("dueDate") dueDate: Date, @Args("labels") labels: [number], @Args("remarks") remarks: string)
+	async createTask(@Args("title") title: string, @Args("description") description: string, @Args("parentId") parentId: number, @Args("categoryId") categoryId: number, @Args("userId") userId: number, @Args("dueDate") dueDate: Date, @Args("labels") labels: [number], @Args("remarks") remarks: string)
 	{
-		return(await this.TaskService.createTask(title, description, userId, parentId, remarks, labels, dueDate));
+		return(await this.TaskService.createTask(title, description, categoryId, userId, parentId, remarks, labels, dueDate));
 	}
 
 	@Mutation("removeTask")
