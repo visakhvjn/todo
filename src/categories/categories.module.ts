@@ -14,6 +14,6 @@ import { TasksModule } from 'src/tasks/tasks.module';
 	],
 	controllers: [],
 	providers: [CategoriesService, CategoriesResolver],
-	exports: [CategoriesResolver]
+	exports: [CategoriesResolver, CategoriesService]
 })
 export class CategoriesModule {}

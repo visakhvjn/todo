@@ -4,11 +4,13 @@ type User
 	name: String!,
 	email: String!,
 	picture: String,
+	googleId: String,
 	status: String!,
 	created: String!,
 	followers: [User],
 	following: [User],
 	tasks: [Task]
+	categories: [Category]
 }
 
 type Category
@@ -68,7 +70,7 @@ type Query
 type Mutation
 {
 	# User Mutations
-	createUser(name: String!, email: String!, picture: String!): User!,
+	createUser(name: String!, email: String!, picture: String!, googleId: String!): User!,
 	# Category Mutations
 	createCategory(name: String!, type: String!, userId: Int!): Category!,
 	removeCategory(categoryId: Int!): Category,

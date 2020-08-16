@@ -26,10 +26,16 @@ export class CategoriesService
 		return(category);
 	}
 
+	// Get categories for a user.
+	async getUserCategories(userId: number)
+	{
+		return(await this.Category.find({userId: userId, "status": "active"}));
+	}
+
 	// Create a new category.
 	async createCategory(name: string, type: string, userId: number)
 	{
-		const totalCategoryCount: number = await this.Category.count({});
+		const totalCategoryCount: number = await this.Category.countDocuments({});
 		const nextCategoryId: number = totalCategoryCount + 1;
 
 		const newCategory =
@@ -39,6 +45,8 @@ export class CategoriesService
 			type: type,
 			userId: userId
 		}
+
+		console.log(newCategory);
 
 		return(await this.Category.create(newCategory));
 	}

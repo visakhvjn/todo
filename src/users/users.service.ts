@@ -29,10 +29,12 @@ export class UsersService
 	// Create a new user
 	async createUser(name: string, email: string, picture: string, googleId: string): Promise<User>
 	{
-		if (this.userExists(email, googleId))
+		console.log("Here");
+		if (await this.userExists(email, googleId))
 		{
 			return(null);
 		}
+		console.log("Here2");
 
 		const totalUserCount: number = await this.User.count({});
 		const nextUserId: number = totalUserCount + 1;
@@ -46,6 +48,8 @@ export class UsersService
 			googleId: googleId
 		}
 
+		console.log(newUser);
+
 		return(await this.User.create(newUser));
 	}
 
@@ -53,6 +57,8 @@ export class UsersService
 	{
 		const user = await this.User.findOne({$or:[{"email": email},{"googleId": googleId}], "status": "active"});
 
-		return(user? true: false);
+		console.log(user);
+
+		return(user != null? true: false);
 	}
 }

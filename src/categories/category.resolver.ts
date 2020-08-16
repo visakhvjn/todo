@@ -34,7 +34,7 @@ export class CategoriesResolver
 	}
 
 	@Mutation("createCategory")
-	async createCategory(@Args("name") name: string, @Args("type") type: string, @Args("userId") userId: number)
+	async createCategory(@Args("name") name: string, @Args("type") type: string, @Args("userId") userId: number): Promise<Category>
 	{
 		return(await this.CategoryService.createCategory(name, type, userId));
 	}

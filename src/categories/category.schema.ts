@@ -4,6 +4,7 @@ export const CategorySchema = new mongoose.Schema
 ({
 	id: String,
 	categoryId: Number,
+	name: String,
 	order: Number,
 	position: Number,
 	userId: Number,
