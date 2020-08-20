@@ -81,11 +81,11 @@ export class TasksService
 		));
 	}
 
-	async removeAllTasksForCategory(categoryId: number)
+	async removeAllTasksForCategory(userId: number, categoryId: number)
 	{
 		return(await this.Task.updateMany
 		(
-			{"categoryId": categoryId},
+			{"categoryId": categoryId, "userId": userId},
 			{
 				$set:
 				{

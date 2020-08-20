@@ -52,11 +52,11 @@ export class CategoriesService
 	}
 
 	// Remove a category and all of it's tasks.
-	async removeCategory(categoryId: number)
+	async removeCategory(userId: number, categoryId: number)
 	{
 		return(await this.Category.updateOne
 		(
-			{"categoryId": categoryId, "status": "active"},
+			{"categoryId": categoryId, "status": "active", "userId": userId},
 			{
 				$set:
 				{
@@ -67,9 +67,19 @@ export class CategoriesService
 		));
 	}
 
-	// Edit a category.
-	async editCategory(categoryId: number, name: string)
+	// Rename a category and all of it's tasks.
+	async renameCategory(userId: number, categoryId: number, name: string)
 	{
-		return(await this.Category.findOneAndUpdate({"categoryId": categoryId}, {$set:{"name": name, "updated": Date.now}}, {new: true}));
+		return(await this.Category.updateOne
+		(
+			{"categoryId": categoryId, "status": "active", "userId": userId},
+			{
+				$set:
+				{
+					"name": name,
+					"updated": Date.now
+				}
+			}
+		));
 	}
 }

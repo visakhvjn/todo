@@ -40,15 +40,15 @@ export class CategoriesResolver
 	}
 
 	@Mutation("removeCategory")
-	async removeCategory(@Args("categoryId") categoryId: number)
+	async removeCategory(@Args("userId") userId: number, @Args("categoryId") categoryId: number)
 	{
-		await this.CategoryService.removeCategory(categoryId);
-		await this.TaskService.removeAllTasksForCategory(categoryId);
+		await this.CategoryService.removeCategory(userId, categoryId);
+		await this.TaskService.removeAllTasksForCategory(userId, categoryId);
 	}
 
-	@Mutation("editCategory")
-	async editCategory(@Args("categoryId") categoryId: number, @Args("name") name: string): Promise<Category>
+	@Mutation("renameCategory")
+	async renameCategory(@Args("categoryId") categoryId: number, @Args("name") name: string, @Args("userId") userId: number)
 	{
-		return(await this.CategoryService.editCategory(categoryId, name));
+		await this.CategoryService.renameCategory(userId, categoryId, name);
 	}
 }
