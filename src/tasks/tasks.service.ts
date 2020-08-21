@@ -90,7 +90,7 @@ export class TasksService
 				$set:
 				{
 					"status": "deleted",
-					"updated": Date.now
+					"updated": new Date()
 				}
 			}
 		));
