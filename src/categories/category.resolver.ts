@@ -42,8 +42,8 @@ export class CategoriesResolver
 	@Mutation("removeCategory")
 	async removeCategory(@Args("userId") userId: number, @Args("categoryId") categoryId: number)
 	{
-		await this.CategoryService.removeCategory(userId, categoryId);
 		await this.TaskService.removeAllTasksForCategory(userId, categoryId);
+		return(await this.CategoryService.removeCategory(userId, categoryId));
 	}
 
 	@Mutation("renameCategory")

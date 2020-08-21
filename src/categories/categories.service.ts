@@ -54,7 +54,7 @@ export class CategoriesService
 	// Remove a category and all of it's tasks.
 	async removeCategory(userId: number, categoryId: number)
 	{
-		return(await this.Category.updateOne
+		return(await this.Category.findOneAndUpdate
 		(
 			{"categoryId": categoryId, "status": "active", "userId": userId},
 			{
@@ -63,6 +63,9 @@ export class CategoriesService
 					"status": "deleted",
 					"updated": new Date()
 				}
+			},
+			{
+				new: true
 			}
 		));
 	}
