@@ -61,7 +61,7 @@ export class CategoriesService
 				$set:
 				{
 					"status": "deleted",
-					"updated": Date.now
+					"updated": new Date()
 				}
 			}
 		));
@@ -77,7 +77,7 @@ export class CategoriesService
 				$set:
 				{
 					"name": name,
-					"updated": Date.now
+					"updated": new Date()
 				}
 			}
 		));
